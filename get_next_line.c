@@ -1,7 +1,5 @@
 #include "get_next_line.h"
 
-int BUFFER_SIZE = 256;
-
 int		oversize_buf(char **p0, char **remem, char **tmp)
 {
 	**p0 = '\0';
@@ -71,23 +69,4 @@ int		get_next_line(int fd, char **line)
 		free(tmp);
 	}
 	return (return_val(p0, readed, line));
-}
-
- 
-#include <stdio.h>
-#include <fcntl.h>
-
-int main()
-{
-    int fd = open("file", O_RDONLY);
-    char *line;
-    int i;
-    while ((i = get_next_line(fd, &line)))
-    {
-        printf("i = %d %s\n", i, line);
-        free(line);
-    }
-    printf("i = %d %s\n", i, line);
-        free(line);
-    return (0);
 }
