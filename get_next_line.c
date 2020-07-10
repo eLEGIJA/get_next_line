@@ -21,7 +21,7 @@ void	remembered_buf(char ***line, char **p0, char **remem, char **tmp)
 		*tmp = *line[0];
 		*line[0] = ft_strjoin(*line[0], *remem);
 		free(*tmp);
-		oversize_buf(&*p0, &*remem, &*tmp);
+		oversize_buf(p0, remem, tmp);
 	}
 	else
 	{
@@ -53,9 +53,8 @@ int		get_next_line(int fd, char **line)
 
 	p0 = NULL;
 	readed = 0;
-	if (!line || fd < 0 || BUFFER_SIZE < 1 || !(*line = malloc(1)))
+	if (!line || fd < 0 || BUFFER_SIZE < 1 || !(*line = ft_strdup("\0")))
 		return (-1);
-	*line[0] = 0;
 	if (remem)
 		remembered_buf(&line, &p0, &remem, &tmp);
 	while (!p0 && (readed = read(fd, buf, BUFFER_SIZE)) > 0 && *line)
