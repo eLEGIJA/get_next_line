@@ -53,7 +53,7 @@ int		get_next_line(int fd, char **line)
 
 	p0 = NULL;
 	readed = 0;
-	if (!line || fd < 0 || BUFFER_SIZE < 1 || !(*line = ft_strdup("\0"))
+	if (!line || fd < 0 || BUFFER_SIZE < 1 || !(*line = ft_strdup("\0")))
 		return (-1);
 	if (remem[fd])
 		remembered_buf(&line, &p0, &remem[fd], &tmp);
