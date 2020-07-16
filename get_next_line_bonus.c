@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msafflow <elegija4mlg@gmail.com>           +#+  +:+       +#+        */
+/*   By: elegija <elegija@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 12:25:59 by msafflow          #+#    #+#             */
-/*   Updated: 2020/07/16 12:25:59 by msafflow         ###   ########.fr       */
+/*   Updated: 2020/07/16 16:07:55 by elegija          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		oversize_buf(char **p0, char **remem, char **tmp)
 
 void	remembered_buf(char ***line, char **p0, char **remem, char **tmp)
 {
-	if	((*p0 = ft_strchr(*remem, '\n')))
+	if ((*p0 = ft_strchr(*remem, '\n')))
 	{
 		**p0 = '\0';
 		*tmp = *line[0];
@@ -73,7 +73,7 @@ int		get_next_line(int fd, char **line)
 	{
 		buf[readed] = '\0';
 		if ((p0 = ft_strchr(buf, '\n')))
-			if(!(oversize_buf(&p0, &remem[fd], &tmp)))
+			if (!(oversize_buf(&p0, &remem[fd], &tmp)))
 				return (-1);
 		tmp = *line;
 		*line = ft_strjoin(*line, buf);
